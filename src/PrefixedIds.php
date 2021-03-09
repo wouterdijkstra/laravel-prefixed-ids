@@ -69,7 +69,7 @@ class PrefixedIds
     public static function getUniqueId(): string
     {
         if (! static::$generateUniqueIdUsing) {
-            return str_replace('-', '', Str::uuid());
+            return config('prefixed-ids.use_ordered_uuids') === true ? str_replace('-', '', Str::orderedUuid()) : str_replace('-', '', Str::uuid());
         }
 
         return (static::$generateUniqueIdUsing)();

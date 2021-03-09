@@ -126,6 +126,11 @@ return [
      * Setting this to true sets Model's $incrementing to false by default.
      */
     'prefixed_id_is_primary' => false,
+
+    /*
+     * UUID's are used by default. Setting this to true will use ordered UUID's instead.
+     */
+    'use_ordered_uuids' => false,
 ];
 ```
 
@@ -152,6 +157,9 @@ Schema::create('your_models_table', function (Blueprint $table) {
 
 Obviously, you can modify these stubs further.
 
+Instead of using UUID's, you can use ordered UUID's. Ordered UUID's are sortable by default; they switch the hash and the timestamp.
+
+Read more about the (security) differences between UUIDv4 and ordered UUID's [here](https://itnext.io/laravel-the-mysterious-ordered-uuid-29e7500b4f8)
 
 ## Usage
 

@@ -96,6 +96,11 @@ return [
      * The attribute name used to store prefixed ids on a model
      */
     'prefixed_id_attribute_name' => 'prefixed_id',
+    
+    /*
+     * UUID's are used by default. Setting this to true will use ordered UUID's instead.
+     */
+    'use_ordered_uuids' => false,
 
     /*
      * Using prefixed id's as primary id?
@@ -105,6 +110,10 @@ return [
     'prefixed_id_is_primary' => false,
 ];
 ```
+
+Instead of using UUID's, you can use ordered UUID's. Ordered UUID's are sortable by default; they switch the hash and the timestamp.
+
+Read more about the (security) differences between UUIDv4 and ordered UUID's [here](https://itnext.io/laravel-the-mysterious-ordered-uuid-29e7500b4f8).
 
 When setting `prefixed_id_is_primary` to `true` it is suggested to also publish the custom stubs.
 
@@ -124,6 +133,7 @@ Schema::create('your_models_table', function (Blueprint $table) {
 ```
 
 Obviously, you can modify these stubs further.
+
 
 ## Usage
 

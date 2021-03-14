@@ -17,6 +17,11 @@ trait HasPrefixedId
             $model->{$attributeName} = $model->generatePrefixedId();
         });
     }
+    
+    public function getKeyType()
+    {
+        return config('prefixed-ids.prefixed_id_is_primary') ? 'string' : 'string';
+    }
 
     public function getPrefixedIdAttribute(): ?string
     {

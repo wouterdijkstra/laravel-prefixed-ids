@@ -96,8 +96,44 @@ return [
      * The attribute name used to store prefixed ids on a model
      */
     'prefixed_id_attribute_name' => 'prefixed_id',
+    
+    /*
+     * UUID's are used by default. Setting this to true will use ordered UUID's instead.
+     */
+    'use_ordered_uuids' => false,
+
+    /*
+     * Using prefixed id's as primary id?
+     * If set to true, it's suggested to set 'prefixed_ids_attribute_name' to 'id'.
+     * Setting this to true sets Model's $incrementing to false by default.
+     */
+    'prefixed_id_is_primary' => false,
 ];
 ```
+
+Instead of using UUID's, you can use ordered UUID's. Ordered UUID's are sortable by default; they switch the hash and the timestamp.
+
+Read more about the (security) differences between UUIDv4 and ordered UUID's [here](https://itnext.io/laravel-the-mysterious-ordered-uuid-29e7500b4f8).
+
+When setting `prefixed_id_is_primary` to `true` it is suggested to also publish the custom stubs.
+
+```bash
+php artisan prefixedids:stubs
+```
+
+These stubs add the `Spatie\PrefixedIds\Models\Concerns\HasPrefixedId` trait to your models by default.
+
+They'll also adapt your migrations to include the following:
+
+```php
+Schema::create('your_models_table', function (Blueprint $table) {
+   $table->string('id')->primary();
+   $table->timestamps();
+});
+```
+
+Obviously, you can modify these stubs further.
+
 
 ## Usage
 

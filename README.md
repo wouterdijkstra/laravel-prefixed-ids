@@ -12,6 +12,10 @@ This fork differs from the regular over at [spatie/laravel-prefixed-ids](https:/
 1. This fork supports Laravel's ordered UUID's. Using these adds support for chronologically ordering your rows.
 2. This fork supports adding prefixed ids as the primary ID of your models and adds stubs to accommodate for this.
 
+Keep on making!
+
+*Issues with this specific fork? Find me [on Twitter @woutertoday](https://twitter.com/woutertoday)*
+
 ## What does it do?
 
 Prefixing an id will help users to recognize what kind of id it is. Stripe does this by default: customer ids are prefixed with `cus`, secret keys in production are prefixed with `sk_live_`, secret keys of a testing environment with `sk_test_` [and so on...](https://gist.github.com/fnky/76f533366f75cf75802c8052b577e2a5).

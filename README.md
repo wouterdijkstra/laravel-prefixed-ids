@@ -5,6 +5,15 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/spatie/laravel-prefixed-ids/Check%20&%20fix%20styling?label=code%20style)](https://github.com/spatie/laravel-prefixed-ids/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-prefixed-ids.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-prefixed-ids)
 
+## Differences
+
+This fork differs from the regular over at [spatie/laravel-prefixed-ids](https://github.com/spatie/laravel-prefixed-ids) in these two ways:
+
+1. This fork supports Laravel's ordered UUID's. Using these adds support for chronologically ordering your rows.
+2. This fork supports adding prefixed ids as the primary ID of your models and adds stubs to accommodate for this.
+
+## What does it do?
+
 Prefixing an id will help users to recognize what kind of id it is. Stripe does this by default: customer ids are prefixed with `cus`, secret keys in production are prefixed with `sk_live_`, secret keys of a testing environment with `sk_test_` [and so on...](https://gist.github.com/fnky/76f533366f75cf75802c8052b577e2a5).
 
 This package can generate such friendly prefixed ids for Eloquent models. Here's how such generated ids could look like.
@@ -96,7 +105,7 @@ return [
      * The attribute name used to store prefixed ids on a model
      */
     'prefixed_id_attribute_name' => 'prefixed_id',
-    
+
     /*
      * UUID's are used by default. Setting this to true will use ordered UUID's instead.
      */

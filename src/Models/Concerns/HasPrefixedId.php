@@ -71,5 +71,6 @@ trait HasPrefixedId
     protected function getUniquePartForPrefixId(): string
     {
         return PrefixedIds::getUniqueId();
+        /* return str_replace('-', '', Str::uuid()); */
     }
 }

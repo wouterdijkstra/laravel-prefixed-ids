@@ -20,7 +20,9 @@ class PrefixedIdsServiceProvider extends PackageServiceProvider
 
     protected function registerCommands()
     {
-        if (! $this->app->runningInConsole()) return;
+        if (! $this->app->runningInConsole()) {
+            return;
+        }
 
         $this->commands([
             StubsCommand::class,        // prefixedids:stubs

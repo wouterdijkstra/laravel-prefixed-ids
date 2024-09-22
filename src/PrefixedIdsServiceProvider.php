@@ -4,7 +4,6 @@ namespace Spatie\PrefixedIds;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-
 use Spatie\PrefixedIds\Commands\StubsCommand;
 
 class PrefixedIdsServiceProvider extends PackageServiceProvider
